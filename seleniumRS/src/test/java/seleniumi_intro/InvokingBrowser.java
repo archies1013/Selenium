@@ -39,7 +39,7 @@ public class InvokingBrowser {
 		//MicroSoftEdge launch
 		System.setProperty("webdriver.edge.driver", "/Users/archanasawant/Documents/msedgedriver");
 		WebDriver driver = new EdgeDriver();
-		
+	
 		
 		driver.get("https://rahulshettyacademy.com/");
 		System.out.println(driver.getTitle());//validate the Title of the url

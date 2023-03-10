@@ -12,6 +12,13 @@ public class TestNg_Demo {
 		System.out.println("Hello");
 	}
 	
+	@Test
+	public void SecondTest()
+	{
+		
+		System.out.println("Bye");
+	}
+	
 	
 
 }

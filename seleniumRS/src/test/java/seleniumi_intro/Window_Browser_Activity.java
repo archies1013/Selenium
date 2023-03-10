@@ -2,7 +2,7 @@ package seleniumi_intro;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.v108.page.model.NavigatedWithinDocument;
+
 
 public class Window_Browser_Activity {
 
