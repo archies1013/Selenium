@@ -11,7 +11,7 @@ public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 	 * Streams is nothing collection of Strings 
 	 * 
 	 */
-	//@Test
+	@Test
 	public void regular()
 	{
 		ArrayList<String> names=new ArrayList<String>();
