@@ -1,9 +1,17 @@
 package JavaStreams_LambdaExpressions;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.Streams;
 
 public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 	
@@ -11,10 +19,10 @@ public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 	 * Streams is nothing collection of Strings 
 	 * 
 	 */
-	@Test
+	//@Test
 	public void regular()
 	{
-		ArrayList<String> names=new ArrayList<String>();
+		ArrayList<String> names=new ArrayList<String>();//this is common syntax of create arralist object for the strings and if you want int youhave to give int
 		names.add("Aaron");
 		names.add("Aakash");
 		names.add("Mohit");
@@ -23,7 +31,7 @@ public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 		int count=0;
 		for (int i=0; i<names.size(); i++)
 		{
-			String actuals=names.get(i);
+			String actuals=names.get(i);//get method basically use to pull the elements present in the list
 			if(actuals.startsWith("A"));
 			{
 				count++;
@@ -33,7 +41,7 @@ public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 	}
 	
 	//print the name which starts with letter A
-	@Test
+	//@Test
 	public void streamFilter()
 	{
 		ArrayList<String> names=new ArrayList<String>();
@@ -74,7 +82,7 @@ public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 		
 		
 		//Print all the names of ArrayList
-		//names.stream().filter(s->s.length()>2).forEach(s->System.out.println(s));
+		names.stream().filter(s->s.length()>2).forEach(s->System.out.println(s));
 		names.stream().filter(s->s.length()>2).limit(1).forEach(s->System.out.println(s));//this will print only one name starts from letter A
 		
 		/**From the main stream this created one more substream filter of having characters only >4 from that stream if you give .forEach if you
@@ -85,6 +93,90 @@ public class CountNumbersNamesAlphabetwise_withStreamsFilter {
 		 */
 		
 		
+		
+		
 	}
-
+	
+	//@Test
+	public void streamMap()
+	{
+		/**Print the names which have last letter "a" & convert them into Uppercase and print them
+		 * Map - this will help us to modify stream filter result
+		 * .forEach - help us to print in output 
+		 * Remember - whenever you need to modify chose map method after the filter method
+		 * if you do this without stream, you have to go for for loop, if condition and more lines of code
+		 */
+		//Print the names which have last letter "a" & convert them into Uppercase and print them
+		Stream.of("Alshaya", "Aakash", "Mohit", "Rama", "Charlie").filter(s->s.endsWith("a")).map(s->s.toUpperCase())
+		.forEach(s->System.out.println(s));
+		
+		
+		//Print he name which have first letter as "a" with uppercase and sorted way
+		/**There is one terminal operation just like"limit" and count
+		 * similarly there is one more terminal operation "sort"
+		 * here we will conver arrays into aslist
+		 */
+		List<String> names1=Arrays.asList("Azlshaya", "Aakash", "Mohit", "Rama", "Charlie");
+		names1.stream().filter(s->s.startsWith("A")).sorted().map(s->s.toUpperCase()).forEach(s->System.out.println(s));
+	}
+	
+	@Test
+	public void streamMergeArrayList()
+	{
+		ArrayList<String> names2=new ArrayList<String>();
+		names2.add("Aaron");
+		names2.add("Aaditya");
+		names2.add("Rohit");
+		names2.add("Tommy");
+		names2.add("Jack");
+		
+		
+		List<String> names1=Arrays.asList("Azlshaya", "Aakash", "Mohit", "Rama", "Charlie");
+		
+		/**first we need to convert these two arraylist into stream, and then used "concat" method to concatinate two streams
+		 * so this will create one new stream by combining stream1 and stream2 and save into newstream and then .forEach to print the newstream
+		 * We can use this anyMatch to do validation in selenium
+		 */
+		//Merging two different arrays
+		Stream<String> newStream=Stream.concat(names2.stream(), names1.stream());
+		//newStream.sorted().forEach(s->System.out.println(s));
+		
+		//now we will see if "Mohit" is present in list or not (.anyMatch) return boolean expression(if its is True return true and if false return false)
+		//boolean flag=newStream.anyMatch(s->s.equalsIgnoreCase("Moh678it"));
+		boolean flag=newStream.anyMatch(s->s.equalsIgnoreCase("Mohit"));//out testcase is failed bec there is no name presemt in stream which we passed as an argument
+		System.out.println(flag);
+		Assert.assertTrue(flag);
+		
+		
+	}
+		@Test
+		public void streamCollect()
+		{
+			List<String>ls=Stream.of("Alshaya", "Aakash", "Mohit", "Rama", "Charlie").filter(s->s.endsWith("a")).map(s->s.toUpperCase())
+			.collect(Collectors.toList());//you can list, map, set others method also present in collector (we can use "limit" as well)
+			System.out.println(ls.get(0));//if you want to print first index in output
+			
+		}
+		/**Collect - this collect basically use to collect your results and convert back to arraylist
+		 * in real time we dont need output in console but we have to send them in backend or frontend
+		 * Coolect will results from its previous method 
+		 */
+		
+		//Assignment - print unique numbers from this array and sort the array and only give me third index
+		
+		@Test
+		public void streamUniqueNumber()
+		{
+			
+			List<Integer>values=Arrays.asList(0, 2, 5, 4, 4, 5, 8, 9, 6, 8, 7);//output = 
+			values.stream().distinct().forEach(s->System.out.println(s));//this for(.distinct) uniue number
+			List<Integer>li=values.stream().distinct().sorted().collect(Collectors.toList());
+			System.out.println(li.get(2));//if you need thirdindex in output
+			
+		}
+		
+	
+	
 }
+
+

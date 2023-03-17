@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-14T19:59:52 EDT" name="Default suite" finished-at="2023-03-14T19:59:52 EDT" duration-ms="21">
+  <suite started-at="2023-03-15T13:58:05 EDT" name="Default suite" finished-at="2023-03-15T13:58:05 EDT" duration-ms="26">
     <groups>
     </groups>
-    <test started-at="2023-03-14T19:59:52 EDT" name="Default test" finished-at="2023-03-14T19:59:52 EDT" duration-ms="21">
+    <test started-at="2023-03-15T13:58:05 EDT" name="Default test" finished-at="2023-03-15T13:58:05 EDT" duration-ms="26">
       <class name="JavaStreams_LambdaExpressions.CountNumbersNamesAlphabetwise_withStreamsFilter">
-        <test-method signature="regular()[pri:0, instance:JavaStreams_LambdaExpressions.CountNumbersNamesAlphabetwise_withStreamsFilter@5bd03f44]" started-at="2023-03-14T19:59:52 EDT" name="regular" finished-at="2023-03-14T19:59:52 EDT" duration-ms="5" status="PASS">
+        <test-method signature="streamCollect()[pri:0, instance:JavaStreams_LambdaExpressions.CountNumbersNamesAlphabetwise_withStreamsFilter@a9cd3b1]" started-at="2023-03-15T13:58:05 EDT" name="streamCollect" finished-at="2023-03-15T13:58:05 EDT" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- regular -->
+        </test-method> <!-- streamCollect -->
+        <test-method signature="streamMergeArrayList()[pri:0, instance:JavaStreams_LambdaExpressions.CountNumbersNamesAlphabetwise_withStreamsFilter@a9cd3b1]" started-at="2023-03-15T13:58:05 EDT" name="streamMergeArrayList" finished-at="2023-03-15T13:58:05 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- streamMergeArrayList -->
+        <test-method signature="streamUniqueNumber()[pri:0, instance:JavaStreams_LambdaExpressions.CountNumbersNamesAlphabetwise_withStreamsFilter@a9cd3b1]" started-at="2023-03-15T13:58:05 EDT" name="streamUniqueNumber" finished-at="2023-03-15T13:58:05 EDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- streamUniqueNumber -->
       </class> <!-- JavaStreams_LambdaExpressions.CountNumbersNamesAlphabetwise_withStreamsFilter -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
